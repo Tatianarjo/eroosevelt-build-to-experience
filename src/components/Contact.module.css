@@ -1,0 +1,241 @@
+.section {
+  padding: 100px 44px 0;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.bgText {
+  position: absolute;
+  bottom: 60px;
+  left: -10px;
+  font-family: var(--font-display);
+  font-size: clamp(100px, 20vw, 280px);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+  will-change: transform;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 80px;
+}
+
+/* Left column */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(50px, 8vw, 110px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+}
+
+.detail {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detailLabel {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.detailValue {
+  font-family: var(--font-condensed);
+  font-size: 15px;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+a.detailValue:hover {
+  opacity: 0.6;
+}
+
+/* Right column */
+.right {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pitch {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.4);
+  max-width: 400px;
+  font-weight: 300;
+}
+
+/* CTA button */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 18px 36px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 48px;
+  align-self: flex-start;
+  transition: border-color 0.35s;
+}
+
+.cta:hover {
+  border-color: var(--white);
+}
+
+.ctaFill {
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.cta:hover .ctaFill {
+  transform: scaleX(1);
+}
+
+.ctaText {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.cta:hover .ctaText {
+  color: var(--black);
+}
+
+.ctaArrow {
+  font-size: 15px;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.cta:hover .ctaArrow {
+  color: var(--black);
+}
+
+/* Footer bar */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footerLogo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.08em;
+}
+
+.footerMeta {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.footerLinks {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footerLinks a {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: var(--white);
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 86px var(--page-pad-x) 0;
+  }
+
+  .grid {
+    gap: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 76px var(--page-pad-x) 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-bottom: 54px;
+  }
+
+  .right {
+    padding-top: 0;
+  }
+
+  .pitch {
+    max-width: none;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footerLinks {
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
+}

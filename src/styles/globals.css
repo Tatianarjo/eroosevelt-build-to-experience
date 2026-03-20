@@ -1,0 +1,96 @@
+/* ── Reset ──────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Variables ──────────────────────────────── */
+:root {
+  --black:       #0a0a0a;
+  --white:       #f5f4f0;
+  --gray:        #c8c5be;
+  --light-gray:  #e8e6e1;
+  --mid-gray:    #b0ada6;
+
+  --font-display:   'Anton', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body:      'Barlow', sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --page-pad-x: clamp(16px, 4vw, 44px);
+  --page-pad-y: clamp(40px, 8vw, 90px);
+}
+
+/* ── Base ────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+/* Only hide cursor on devices that actually have one */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  button { cursor: none; }
+}
+
+/* ── Utility ─────────────────────────────────── */
+.section-eyebrow {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.section-eyebrow.light {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.section-eyebrow.light::before {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Defensive: prevent accidental horizontal overflow from wide grids */
+main {
+  width: 100%;
+  overflow-x: clip;
+}

@@ -1,0 +1,142 @@
+.section {
+  padding: 100px 0 120px;
+  background: var(--light-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(80px, 18vw, 260px);
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+
+.inner {
+  padding: 0 44px;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  margin-bottom: 72px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 112px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+}
+
+/* 4-column step grid */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.step {
+  background: var(--light-gray);
+  padding: 48px 32px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  transition: background 0.35s;
+}
+
+.step:hover {
+  background: var(--black);
+}
+
+/* Invert fill overlay — handled via CSS hover above */
+.stepFill {
+  display: none; /* using CSS hover instead of JS for simplicity */
+}
+
+.stepNum {
+  font-family: var(--font-display);
+  font-size: 68px;
+  color: rgba(0, 0, 0, 0.07);
+  line-height: 1;
+  margin-bottom: 22px;
+  transition: color 0.35s;
+}
+
+.step:hover .stepNum {
+  color: rgba(255, 255, 255, 0.07);
+}
+
+.stepTitle {
+  font-family: var(--font-condensed);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 16px;
+  transition: color 0.35s;
+  line-height: 1.4;
+}
+
+.step:hover .stepTitle {
+  color: var(--white);
+}
+
+.stepBody {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.55);
+  transition: color 0.35s;
+  font-weight: 300;
+}
+
+.step:hover .stepBody {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 86px 0 96px;
+  }
+
+  .inner {
+    padding: 0 var(--page-pad-x);
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 76px 0 86px;
+  }
+
+  .header {
+    margin-bottom: 44px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    cursor: default;
+    padding: 38px 22px;
+  }
+}

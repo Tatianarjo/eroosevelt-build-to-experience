@@ -1,0 +1,93 @@
+.gallery {
+  padding: 4px 44px 100px;
+  background: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  grid-template-rows: 420px 280px;
+  gap: 3px;
+}
+
+.cell {
+  overflow: hidden;
+  position: relative;
+  cursor: none;
+}
+
+.cell.tall {
+  grid-row: 1 / 3;
+}
+
+.cell:nth-child(3) {
+  grid-row: 1 / 3;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cell:hover .fill {
+  transform: scale(1.04);
+}
+
+.caption {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 4px 10px;
+}
+
+/* Swatches */
+.swatchDarkMetal { background: radial-gradient(ellipse at 30% 40%, #555 0%, #222 55%, #0a0a0a 100%); }
+.swatchWarmGold  { background: radial-gradient(ellipse at 60% 30%, #e8b86d 0%, #c97f2e 40%, #7a4010 100%); }
+.swatchDeepTeal  { background: radial-gradient(ellipse at 40% 50%, #3ec9c9 0%, #1a7a7a 40%, #0d3d3d 100%); }
+.swatchRustBrick { background: radial-gradient(ellipse at 50% 40%, #d4602a 0%, #9e3a18 50%, #5a1a08 100%); }
+
+@media (max-width: 1024px) {
+  .gallery {
+    padding: 4px var(--page-pad-x) 86px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 320px 260px 260px;
+    gap: 6px;
+  }
+
+  .cell.tall,
+  .cell:nth-child(3) {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    padding: 4px var(--page-pad-x) 76px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .cell {
+    cursor: default;
+    border-radius: 12px;
+  }
+
+  .fill {
+    min-height: 220px;
+  }
+}

@@ -1,0 +1,179 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 44px;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+.logo {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.links {
+  display: flex;
+  gap: 56px;
+  list-style: none;
+}
+
+.link {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--black);
+  font-weight: 500;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.menuButton {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.menuIcon {
+  width: 18px;
+  height: 2px;
+  background: var(--black);
+  position: relative;
+  display: block;
+  opacity: 0.8;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--black);
+}
+
+.menuIcon::before { top: -6px; }
+.menuIcon::after  { top: 6px; }
+
+.backdrop {
+  display: none;
+}
+
+.drawer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 16px var(--page-pad-x);
+    mix-blend-mode: normal;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 999;
+  }
+
+  .backdropOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .drawer {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: min(360px, 88vw);
+    background: var(--white);
+    transform: translateX(105%);
+    transition: transform 0.28s var(--ease-out-expo);
+    z-index: 1000;
+    padding: 18px 18px 26px;
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.18);
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+  }
+
+  .drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .drawerTitle {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .drawerClose {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.55;
+    padding: 10px 12px;
+    border-radius: 999px;
+  }
+
+  .drawerLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .drawerLink {
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 14px 12px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.03);
+    opacity: 0.9;
+  }
+}
