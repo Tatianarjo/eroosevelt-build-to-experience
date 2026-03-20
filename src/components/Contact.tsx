@@ -91,6 +91,7 @@ export default function Contact() {
       <div className={styles.footer}>
         <span className={styles.footerLogo}>Roosevelt Allen</span>
         <span className={styles.footerMeta}>© 2025 Roosevelt Allen. All rights reserved.</span>
+        <span className={styles.footerMeta}><a href="https://eyecodeglitter.com/" data-cursor-hover="true">Powered by eyeCodeGlitter</a></span>
         <ul className={styles.footerLinks}>
           <li><a href="#" data-cursor-hover="true">Instagram</a></li>
           <li><a href="#" data-cursor-hover="true">LinkedIn</a></li>
